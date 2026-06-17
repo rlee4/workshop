@@ -1,287 +1,253 @@
-<!DOCTYPE html>
-<html lang="zh-TW" data-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rex Tseng | Technical Sales Consultant</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+<!doctype html>
+<html lang="zh-Hant" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="個人數位化工作室，協助個人創業與中小企業用小工具、自動化、Excel、爬蟲、LINE Bot、Web App 與 AI 串接先把麻煩流程做順。"
+    />
+    <title>方案 4：灰藍加亮黃 | 個人數位化工作室</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem("studio-theme");
+          var preferredTheme =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+          document.documentElement.dataset.theme = savedTheme || preferredTheme;
+        } catch (error) {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav shell" aria-label="主導覽">
+        <a class="brand" href="#top" aria-label="回到首頁">
+          <span class="brand__mark" aria-hidden="true">pgm</span>
+          <span class="brand__text">個人數位化工作室</span>
+        </a>
 
-  <!-- ===== NAVBAR ===== -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#hero" class="nav-logo">Rex<span>.</span></a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#services" class="nav-link">服務項目</a></li>
-        <li><a href="#cases" class="nav-link">使用案例</a></li>
-        <li><a href="#contact" class="nav-link">聯絡</a></li>
-      </ul>
-      <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle" aria-label="切換深色模式">
-          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <div class="nav__links">
+          <a href="#about">關於我</a>
+          <a href="#services">能幫什麼</a>
+          <a href="#cases">常見小案</a>
+          <a href="#contact">聯絡</a>
+        </div>
+
+        <button
+          class="theme-toggle"
+          type="button"
+          data-theme-toggle
+          aria-label="切換深色模式"
+          title="切換深色模式"
+        >
+          <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M20.2 14.7A7.5 7.5 0 0 1 9.3 3.8 8.8 8.8 0 1 0 20.2 14.7Z"
+            />
+          </svg>
+          <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6" />
+          </svg>
         </button>
-        <button class="hamburger" id="hamburger" aria-label="選單">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#services" class="mobile-link">服務項目</a>
-      <a href="#cases" class="mobile-link">使用案例</a>
-      <a href="#contact" class="mobile-link">聯絡</a>
-    </div>
-  </nav>
+      </nav>
+    </header>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero" id="hero">
-    <div class="hero-bg">
-      <div class="hero-shape hero-shape-1"></div>
-      <div class="hero-shape hero-shape-2"></div>
-      <div class="hero-shape hero-shape-3"></div>
-    </div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">Technical Sales Consultant</p>
-      <h1 class="hero-title">
-        用技術解決問題<br>
-        <span class="accent">用溝通創造價值</span>
-      </h1>
-      <p class="hero-desc">
-        橋接業務需求與技術實作，從資料處理、自動化到 AI 應用，<br class="hide-sm">
-        提供務實且可交付的客製化解決方案。
-      </p>
-      <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary">立即洽詢</a>
-        <a href="#services" class="btn btn-ghost">了解服務</a>
-      </div>
-    </div>
-    <div class="hero-scroll-hint" aria-hidden="true">
-      <span></span>
-    </div>
-  </section>
-
-  <!-- ===== SERVICES ===== -->
-  <section class="services section" id="services">
-    <div class="container">
-      <div class="section-header fade-in">
-        <p class="section-label">Services</p>
-        <h2 class="section-title">服務項目</h2>
-        <p class="section-desc">結合技術深度與業務理解，端對端處理您的數位需求</p>
-      </div>
-      <div class="services-grid">
-
-        <div class="service-card fade-in">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <h3>數據處理與格式轉換</h3>
-          <p>ETL 流程設計、CSV / JSON / XML 互轉、資料清洗與標準化，讓數據立即可用。</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          </div>
-          <h3>網頁爬蟲與資料擷取</h3>
-          <p>針對目標網站設計爬蟲腳本，結構化擷取競品資訊、市場數據或業務清單。</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-          </div>
-          <h3>Chrome 擴充套件開發</h3>
-          <p>為特定工作流程打造瀏覽器擴充功能，自動化重複操作、提升工作效率。</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          </div>
-          <h3>表單自動化與流程優化</h3>
-          <p>串接表單、觸發通知、自動寫入試算表，把手動流程變成全自動工作流。</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-          </div>
-          <h3>Excel VBA &amp; Google Sheets Apps Script</h3>
-          <p>撰寫巨集自動化報表產製、資料彙整，讓試算表成為強力業務工具。</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          </div>
-          <h3>LINE Bot / Web App 開發</h3>
-          <p>建立 LINE 官方帳號機器人或輕量 Web App，整合通知推播、預約查詢等業務場景。</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M8.46 8.46a5 5 0 0 0 0 7.07"/></svg>
-          </div>
-          <h3>LLM 串接與 AI 模型應用</h3>
-          <p>串接 OpenAI / Claude 等大型語言模型，打造摘要、分類、對話型 AI 功能。</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </div>
-          <h3>網站架設與後端系統開發</h3>
-          <p>規劃並開發靜態官網、動態後台或 REST API，從設計到上線一條龍服務。</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-          </div>
-          <h3>MySQL 資料庫設計與管理</h3>
-          <p>設計正規化 Schema、撰寫複雜查詢與 Stored Procedure，確保資料完整性與效能。</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-          </div>
-          <h3>雲端建設</h3>
-          <p>架設 AWS RDS、Lambda、API Gateway、S3，打造彈性可擴充的雲端基礎設施。</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-          </div>
-          <h3>數學模型與演算法設計</h3>
-          <p>以數學建模方法解決排程、優化、預測等業務問題，把直覺變成可量化的決策依據。</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CASES ===== -->
-  <section class="cases section" id="cases">
-    <div class="container">
-      <div class="section-header fade-in">
-        <p class="section-label">Case Study</p>
-        <h2 class="section-title">使用案例</h2>
-        <p class="section-desc">真實專案，可驗證的成果</p>
-      </div>
-
-      <div class="case-card fade-in">
-        <div class="case-badge">Web Application</div>
-        <div class="case-body">
-          <div class="case-info">
-            <h3 class="case-title">網路地圖應用</h3>
-            <p class="case-desc">
-              為客戶建立一套以地圖為核心的網路關係視覺化平台。系統可將複雜的節點關聯資料轉化為互動式地圖，支援縮放、篩選、路徑追蹤等操作，協助業務團隊快速掌握地理分布與連結強度，大幅縮短情報分析時間。
-            </p>
-            <ul class="case-tags">
-              <li>Python 後端</li>
-              <li>Leaflet.js</li>
-              <li>D3.js 可視化</li>
-              <li>MySQL</li>
-              <li>AWS EC2</li>
-            </ul>
-            <div class="case-metrics">
-              <div class="metric">
-                <span class="metric-num">10×</span>
-                <span class="metric-label">資料查閱速度提升</span>
-              </div>
-              <div class="metric">
-                <span class="metric-num">3 週</span>
-                <span class="metric-label">從需求到上線</span>
-              </div>
-            </div>
-          </div>
-          <div class="case-visual" aria-hidden="true">
-            <div class="map-mock">
-              <div class="map-node node-1"></div>
-              <div class="map-node node-2"></div>
-              <div class="map-node node-3"></div>
-              <div class="map-node node-4"></div>
-              <div class="map-node node-5"></div>
-              <svg class="map-lines" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
-                <line x1="100" y1="80" x2="40" y2="35" stroke="currentColor" stroke-width="1" opacity="0.4"/>
-                <line x1="100" y1="80" x2="160" y2="30" stroke="currentColor" stroke-width="1" opacity="0.4"/>
-                <line x1="100" y1="80" x2="55" y2="130" stroke="currentColor" stroke-width="1" opacity="0.4"/>
-                <line x1="100" y1="80" x2="155" y2="125" stroke="currentColor" stroke-width="1" opacity="0.4"/>
-                <line x1="40" y1="35" x2="160" y2="30" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+    <main id="top">
+      <section class="hero" aria-label="個人數位化工作室">
+        <div class="shell hero__inner reveal">
+          <p class="eyebrow">方案 4：灰藍加亮黃 / 小預算也可以聊 / 先求能用</p>
+          <h1>資料太亂、流程太手動？我可以幫你先做一個小工具。</h1>
+          <p class="hero__copy">
+            不一定要一次導大型系統。你把現在最煩的 Excel、表單、網頁資料、
+            LINE 通知或內部流程告訴我，我會用比較務實的方式，先做出能省時間的版本。
+          </p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#contact">
+              <span>先問問看</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h12M13 6l6 6-6 6" />
               </svg>
-            </div>
+            </a>
+            <a class="button button--secondary" href="#services">我能做什麼</a>
+          </div>
+          <p class="hero__small">
+            小案、急著先改善一段流程、還不知道怎麼描述需求，都可以先傳訊息。
+          </p>
+        </div>
+      </section>
+
+      <section class="section intro" id="about">
+        <div class="shell intro-grid">
+          <div class="section__heading reveal">
+            <p class="eyebrow">關於我</p>
+            <h2>不是大型顧問公司，是願意慢慢聽流程的一人工作室。</h2>
+          </div>
+          <div class="intro-copy reveal">
+            <p>
+              我主要協助個人創業者與中小企業處理日常資料、報表、表單、自動化與小系統。
+              很多問題其實不需要一開始就做很大的專案，先把每天最浪費時間的那一步修掉，
+              就會輕鬆很多。
+            </p>
+            <p>
+              因為是個人工作室，可以花時間理解你的內部流程，也比較能配合現有工具。
+              你不用先準備很正式的需求文件，只要把目前怎麼做、哪裡卡、希望少掉什麼人工步驟說出來就好。
+            </p>
           </div>
         </div>
-      </div>
+      </section>
 
-    </div>
-  </section>
+      <section class="section budget-note">
+        <div class="shell reveal">
+          <span>誰適合找我：</span>
+          <strong>小預算</strong>
+          <strong>小功能</strong>
+          <strong>Excel 太多</strong>
+          <strong>人工複製貼上太煩</strong>
+          <strong>想先試做一版</strong>
+        </div>
+      </section>
 
-  <!-- ===== CONTACT ===== -->
-  <section class="contact section" id="contact">
-    <div class="container">
-      <div class="section-header fade-in">
-        <p class="section-label">Contact</p>
-        <h2 class="section-title">聯絡我們</h2>
-        <p class="section-desc">告訴我您的需求，我會在 24 小時內回覆</p>
-      </div>
-      <div class="contact-wrapper fade-in">
-        <form class="contact-form" id="contactForm" novalidate>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">姓名 <span class="required">*</span></label>
-              <input type="text" id="name" name="name" placeholder="您的姓名" required>
-              <span class="field-error" id="nameError"></span>
-            </div>
-            <div class="form-group">
-              <label for="email">電子郵件 <span class="required">*</span></label>
-              <input type="email" id="email" name="email" placeholder="your@email.com" required>
-              <span class="field-error" id="emailError"></span>
-            </div>
+      <section class="section services" id="services">
+        <div class="shell">
+          <div class="section__heading section__heading--wide reveal">
+            <p class="eyebrow">能幫什麼</p>
+            <h2>服務項目就先簡單列出來，有對到一項就可以問。</h2>
+            <p class="section__lead">
+              如果你不確定算哪一類，直接把畫面截圖、Excel 樣本或目前流程描述傳給我也可以。
+            </p>
           </div>
-          <div class="form-group">
-            <label for="subject">主旨</label>
-            <input type="text" id="subject" name="subject" placeholder="例：需要網頁爬蟲服務報價">
+
+          <ul class="service-list reveal">
+            <li>LINE Bot / Web App 開發</li>
+            <li>數據處理與格式轉換</li>
+            <li>網頁爬蟲與資料擷取</li>
+            <li>Chrome 擴充套件開發</li>
+            <li>表單自動化與流程優化</li>
+            <li>Office VBA 開發、Excel VBA、Google Sheets Apps Script</li>
+            <li>AI 模型應用</li>
+            <li>資料庫設計與管理</li>
+            <li>雲端建設（AWS、Azure、GCP等）</li>
+            <li>Power App 導入</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section cases" id="cases">
+        <div class="shell">
+          <div class="section__heading section__heading--wide reveal">
+            <p class="eyebrow">實際應用</p>
+            <h2>通常可以先從很小一件事開始。</h2>
           </div>
-          <div class="form-group">
-            <label for="message">需求說明 <span class="required">*</span></label>
-            <textarea id="message" name="message" rows="5" placeholder="請描述您的專案需求、預期時程或任何問題…" required></textarea>
-            <span class="field-error" id="messageError"></span>
-          </div>
-          <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
-            <span class="btn-text">送出訊息</span>
-            <span class="btn-loading" hidden>傳送中…</span>
-          </button>
-          <p class="form-success" id="formSuccess" hidden>✓ 訊息已送出，我會盡快與您聯繫！</p>
-        </form>
-        <div class="contact-info">
-          <div class="contact-item">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <span>uztzeng@gmail.com</span>
-          </div>
-          <div class="contact-item">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>台灣</span>
+
+          <div class="case-list">
+            <article class="case-item reveal">
+              <span>a</span>
+              <div>
+                <h3>LINE Bot - Google Sheet 簡易打卡</h3>
+                <p>傳個訊息就完成打卡，時間自動記入 Google Sheet，外勤或遠端團隊不用另裝 App。</p>
+              </div>
+            </article>
+            <article class="case-item reveal">
+              <span>a</span>
+              <div>
+                <h3>網路地圖應用</h3>
+                <p>地址整理、門市標點、拜訪路線、地圖篩選，不一定要先做完整平台。</p>
+              </div>
+            </article>
+            <article class="case-item reveal">
+              <span>b</span>
+              <div>
+                <h3>網頁爬蟲</h3>
+                <p>把每天都要看的公開資料自動抓下來，整理進 Excel、Google Sheets 或資料庫。</p>
+              </div>
+            </article>
+            <article class="case-item reveal">
+              <span>c</span>
+              <div>
+                <h3>VBA</h3>
+                <p>報表整理、對帳、批次列印、檔案改名、資料匯入，一鍵處理常見雜事。</p>
+              </div>
+            </article>
+            <article class="case-item reveal">
+              <span>c</span>
+              <div>
+                <h3>手機掃條碼應用</h3>
+                <p>用手機鏡頭掃 QR Code 或條碼，自動查料、入庫、核銷，省掉手動輸入和紙本記錄。</p>
+              </div>
+            </article>
           </div>
         </div>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div class="shell contact-grid">
+          <div class="section__heading reveal">
+            <p class="eyebrow">聯絡</p>
+            <h2>先丟一個問題給我就好，不用寫規格書。</h2>
+            <p class="section__lead">
+              例如：「我每天要整理這個 Excel 很煩」、「這個網站資料可以抓嗎？」、
+              「可不可以先做一個很簡單的版本？」這種都可以。
+            </p>
+          </div>
+
+          <form class="contact-form reveal" data-contact-form>
+            <label>
+              <span>你怎麼稱呼</span>
+              <input name="name" type="text" autocomplete="name" required />
+            </label>
+            <label>
+              <span>公司 / 品牌名稱（可不填）</span>
+              <input name="company" type="text" autocomplete="organization" />
+            </label>
+            <label>
+              <span>可回覆的 Email</span>
+              <input name="email" type="email" autocomplete="email" required />
+            </label>
+            <label>
+              <span>現在最想省掉哪一段人工？</span>
+              <textarea name="message" rows="5" required></textarea>
+            </label>
+            <button class="button button--primary contact-form__button" type="submit">
+              <span>整理成 Email 草稿</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h12M13 6l6 6-6 6" />
+              </svg>
+            </button>
+            <p class="form-note" data-form-note role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="contact-methods reveal" aria-label="其他聯絡方式">
+            <a href="https://line.me/R/ti/p/@your-line-id" target="_blank" rel="noreferrer">
+              <span>LINE 比較快</span>
+              <strong>@your-line-id</strong>
+            </a>
+            <a href="tel:+886900000000">
+              <span>電話</span>
+              <strong>09xx-xxx-xxx</strong>
+            </a>
+            <a href="mailto:hello@example.com">
+              <span>Email</span>
+              <strong>hello@example.com</strong>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell">
+        <p>個人數位化工作室 | 小案也可以先問問看</p>
       </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <p class="footer-logo">Rex<span>.</span></p>
-      <p class="footer-copy">© 2026 Rex Tseng. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
