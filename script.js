@@ -2,7 +2,9 @@ const root = document.documentElement;
 const themeToggle = document.querySelector("[data-theme-toggle]");
 const contactForm = document.querySelector("[data-contact-form]");
 const formNote = document.querySelector("[data-form-note]");
-const contactEmail = "hello@example.com";
+
+// 貼上你的 Google Apps Script 網址
+const SHEETS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxQZuDNFWWH9or3QzrUBrzDPwRzLkASi00_ySqrQojwua2k1KeV4-YkQhm52wtndW4xJg/exec";
 
 function setTheme(theme) {
   root.dataset.theme = theme;
@@ -52,7 +54,9 @@ if (reducedMotion) {
 }
 
 if (contactForm) {
-  contactForm.addEventListener("submit", (event) => {
+  const submitBtn = contactForm.querySelector('[type="submit"]');
+
+  contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const data = new FormData(contactForm);
@@ -60,22 +64,23 @@ if (contactForm) {
     const company = String(data.get("company") || "").trim();
     const email = String(data.get("email") || "").trim();
     const message = String(data.get("message") || "").trim();
-    const subject = encodeURIComponent(`工作室諮詢：${company || name || "流程數位化需求"}`);
-    const body = encodeURIComponent(
-      [
-        `姓名：${name}`,
-        `公司 / 品牌名稱：${company || "未填寫"}`,
-        `聯絡 Email：${email}`,
-        "",
-        "想處理的流程或資料問題：",
-        message,
-      ].join("\n")
-    );
 
-    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+    if (submitBtn) submitBtn.disabled = true;
+    if (formNote) formNote.textContent = "傳送中…";
 
-    if (formNote) {
-      formNote.textContent = "已整理成 Email 草稿，請確認內容後寄出。";
+    try {
+      await fetch(SHEETS_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: new URLSearchParams({ name, company, email, message }),
+      });
+
+      if (formNote) formNote.textContent = "已收到！我會盡快回覆你。";
+      contactForm.reset();
+    } catch {
+      if (formNote) formNote.textContent = "傳送失敗，請直接 Email 聯絡我們。";
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
     }
   });
 }
