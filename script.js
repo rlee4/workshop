@@ -3,6 +3,23 @@ const themeToggle = document.querySelector("[data-theme-toggle]");
 const contactForm = document.querySelector("[data-contact-form]");
 const formNote = document.querySelector("[data-form-note]");
 
+let _toastTimer = null;
+function showToast(msg, type = "success") {
+  let toast = document.getElementById("_toast");
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "_toast";
+    toast.className = "toast";
+    document.body.appendChild(toast);
+  }
+  toast.textContent = msg;
+  toast.className = `toast toast--${type} toast--show`;
+  clearTimeout(_toastTimer);
+  _toastTimer = setTimeout(() => {
+    toast.classList.remove("toast--show");
+  }, 3500);
+}
+
 // 貼上你的 Google Apps Script 網址
 const SHEETS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxQZuDNFWWH9or3QzrUBrzDPwRzLkASi00_ySqrQojwua2k1KeV4-YkQhm52wtndW4xJg/exec";
 
@@ -66,7 +83,7 @@ if (contactForm) {
     const message = String(data.get("message") || "").trim();
 
     if (submitBtn) submitBtn.disabled = true;
-    if (formNote) formNote.textContent = "傳送中…";
+    showToast("傳送中…", "success");
 
     try {
       await fetch(SHEETS_SCRIPT_URL, {
@@ -75,10 +92,10 @@ if (contactForm) {
         body: new URLSearchParams({ name, company, email, message }),
       });
 
-      if (formNote) formNote.textContent = "已收到！我會盡快回覆你。";
+      showToast("已收到！我會盡快回覆你。", "success");
       contactForm.reset();
     } catch {
-      if (formNote) formNote.textContent = "傳送失敗，請直接 Email 聯絡我們。";
+      showToast("傳送失敗，請直接 Email 聯絡我們。", "error");
     } finally {
       if (submitBtn) submitBtn.disabled = false;
     }

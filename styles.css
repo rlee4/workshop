@@ -561,6 +561,39 @@ html[data-theme="dark"] .note-strip strong {
   font-weight: 800;
 }
 
+/* Toast popup */
+.toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  background: var(--primary);
+  color: #fff;
+  font-family: var(--body-font);
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 1.5rem 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 48px rgba(0,0,0,0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 9999;
+  white-space: nowrap;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+.toast.toast--success {
+  background: #166534;
+}
+.toast.toast--error {
+  background: #991b1b;
+}
+.toast.toast--show {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
 .contact-methods {
   display: grid;
   grid-column: 1 / -1;
